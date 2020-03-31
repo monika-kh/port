@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, userscalable=no">
+    <link rel='stylesheet' href='/static/css/bootstrap.css' type='text/css'/>
+    <link rel='stylesheet' href='/static/css/style.css' type='text/css'/>
+    <link rel='stylesheet' href='/static/css/style1.css' type='text/css'/>
+    <link rel='stylesheet' href='/static/css/fontawesome.css' type='text/css'/>
+    <link rel='stylesheet' href='/static/css/owl.carousel.min.css' type='text/css'/>
+    <link rel='stylesheet' href='/static/css/animate.css' type='text/css'/>
+    <link rel="shortcut icon" href="/static/images/favicon.ico"/>
+</head>
+
+<section class="calltoaction">
+    <form id="myform" action="{% url 'job:save' %}" enctype="multipart/form-data"
+          class="form-container"
+          method="POST">
+        {% csrf_token %}
+
+        <div class="container">
+            <div class="row  align-items-center">
+                <div class="col-12 col-md-6 wow slideInRight">
+                    <div class="form-box mb-0">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <h4>{{form.name.errors}}</h4>
+                                    <label>Name</label>
+                                    <div class="icons">
+                                        <span class="fa fa-user"></span>
+                                        {{form.name}}
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <h4>{{form.email.errors}}</h4>
+                                    <label>Email</label>
+                                    <div class="icons">
+                                        <span class="fa fa-envelope"></span>
+                                        {{form.email}}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <h4>{{form.resume.errors}}</h4>
+                                    <label>Upload Resume</label>
+                                    <div class="icons">
+                                        <span class="fa fa-upload"></span>
+                                        <div class="upload-resume">
+                                            <label class="pl-4">
+                                                {{form.resume}}
+                                                <p>Upload pdf file</p>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <div class="icons">
+                                        <input type="hidden" id="id" name="job"
+                                               value="{{ job.id}}">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12 pt-1">
+                                <input type="submit" class="btn">
+<!--                                <div>-->
+<!--                                    {% if messages %}-->
+<!--                                    <ul class="messages">-->
+<!--                                        {% for message in messages %}-->
+<!--                                        <h3 {% if message.tags %} class=" {{ message.tags }} " {% endif %}>-->
+<!--                                            {{message}} </h3>-->
+<!--                                        {% endfor %}-->
+<!--                                    </ul>-->
+<!--                                {% endif %}-->
+<!--                                </div>-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</section>
+
+<footer class="text-muted">
+    <div class="container">
+    <div class="card text-center">
+        <div class="card-footer text-muted">
+            &copy; Portal @ {% now "Y"%}
+        </div>
+    </div>
+</div>
+</footer>
+
+<script src='/static/js/jquery.min.js'></script>
+<script src="/static/js/popper.min.js"></script>
+<script src="/static/js/bootstrap.min.js"></script>
+<script src="/static/js/wow.js"></script>
+<script src="/static/js/email_otp_validations.js"></script>
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
