@@ -8,7 +8,7 @@ from .models import Apply
 class ApplyForm(forms.ModelForm):
     class Meta:
         model = Apply
-        fields = ['name', 'email', 'job', 'resume']
+        fields = ["name", "email", "job", "resume"]
 
     def clean_name(self):
         name = self.cleaned_data["name"]

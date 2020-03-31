@@ -7,18 +7,23 @@ import django.db.models.deletion
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('jobs', '0002_apply'),
+        ("jobs", "0002_apply"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='apply',
-            name='email',
+            model_name="apply",
+            name="email",
             field=models.EmailField(max_length=254, unique=True),
         ),
         migrations.AlterField(
-            model_name='apply',
-            name='job',
-            field=models.ForeignKey(blank=True, on_delete=django.db.models.deletion.CASCADE, related_name='job', to='jobs.Jobs'),
+            model_name="apply",
+            name="job",
+            field=models.ForeignKey(
+                blank=True,
+                on_delete=django.db.models.deletion.CASCADE,
+                related_name="job",
+                to="jobs.Jobs",
+            ),
         ),
     ]
